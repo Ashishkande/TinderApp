@@ -1,5 +1,5 @@
 'use client';
-
+export const dynamic = 'force-dynamic';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setUsers } from '../../store/slices/userSlice';
@@ -9,7 +9,7 @@ import { ProfileModal } from '../../components/ProfileModal';
 
 export default function Home() {
   const dispatch = useAppDispatch();
-  const { users, currentIndex, likedUsers } = useAppSelector((state) => state.user);
+  const { users, currentIndex } = useAppSelector((state) => state.user);
   const [selectedUser, setSelectedUser] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 

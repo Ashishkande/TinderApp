@@ -1,3 +1,4 @@
+"use client"
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { User } from '../types';
@@ -13,7 +14,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ user, onClose }) => 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
       onClick={onClose}
     >
       <motion.div
@@ -23,7 +24,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ user, onClose }) => 
         className="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-64 w-full">
+        <div className="relative w-full h-64">
           <Image
             src={user.picture.large}
             alt={`${user.name.first} ${user.name.last}`}
@@ -32,7 +33,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ user, onClose }) => 
           />
         </div>
         <div className="p-6">
-          <h2 className="text-2xl font-bold mb-2">
+          <h2 className="mb-2 text-2xl font-bold">
             {user.name.first} {user.name.last}, {user.dob.age}
           </h2>
           <div className="space-y-4">
@@ -53,7 +54,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ user, onClose }) => 
           </div>
           <button
             onClick={onClose}
-            className="mt-6 w-full py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"
+            className="w-full py-2 mt-6 transition-colors bg-gray-200 rounded-lg hover:bg-gray-300"
           >
             Close
           </button>

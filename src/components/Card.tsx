@@ -1,3 +1,4 @@
+"use client"
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { User } from '../types';
@@ -16,7 +17,7 @@ export const Card: React.FC<CardProps> = ({ user, onLike, onPass, onViewProfile,
 
   return (
     <motion.div
-      className="relative bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm mx-auto"
+      className="relative w-full max-w-sm mx-auto overflow-hidden bg-white shadow-lg rounded-xl"
       style={{ x, ...style }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
@@ -26,7 +27,7 @@ export const Card: React.FC<CardProps> = ({ user, onLike, onPass, onViewProfile,
       exit={{ scale: 0.95, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
-      <div className="relative h-96 w-full">
+      <div className="relative w-full h-96">
         <Image
           src={user.picture.large}
           alt={`${user.name.first} ${user.name.last}`}
@@ -42,22 +43,22 @@ export const Card: React.FC<CardProps> = ({ user, onLike, onPass, onViewProfile,
         <p className="text-gray-600">
           {user.location.city}, {user.location.country}
         </p>
-        <div className="mt-4 flex justify-between">
+        <div className="flex justify-between mt-4">
           <button
             onClick={onPass}
-            className="px-4 py-2 bg-red-500 text-white rounded-full"
+            className="px-4 py-2 text-white bg-red-500 rounded-full"
           >
             Skip
           </button>
           <button
             onClick={onViewProfile}
-            className="px-4 py-2 bg-gray-200 text-gray-800 rounded-full"
+            className="px-4 py-2 text-gray-800 bg-gray-200 rounded-full"
           >
             View Profile
           </button>
           <button
             onClick={onLike}
-            className="px-4 py-2 bg-green-500 text-white rounded-full"
+            className="px-4 py-2 text-white bg-green-500 rounded-full"
           >
             Like
           </button>

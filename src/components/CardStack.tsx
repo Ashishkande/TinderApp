@@ -1,4 +1,5 @@
-import { motion, AnimatePresence } from 'framer-motion';
+"use client"
+import { AnimatePresence } from 'framer-motion';
 import { Card } from './Card';
 import { User } from '../types';
 import { useAppDispatch } from '../store/hooks';
